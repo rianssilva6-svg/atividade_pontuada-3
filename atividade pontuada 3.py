@@ -37,26 +37,26 @@ def reserva_aviao(lista_aviao):
         print("\nLimite máximo de reservas atingido!")
         return
 
-    print("\n -- Reserva --")
-    reversa = input("\nInforme o avião que deseja reservar: ")
+    print("\n===== Reserva =====")
+    reserva = input("\nInforme o avião que deseja reservar: ")
 
-    if reversa not in lista_aviao:
+    if reserva not in lista_aviao:
         print("Este avião não existe!")
         return
-    indice = lista_aviao.index(reversa)
+    indice = lista_aviao.index(reserva)
     if lista_assento[indice] <= 0:
         print("Não há assentos disponíveis para este avião!")
         return
     nome = input("Informe seu nome: ")
     lista_assento[indice] -= 1
-    reservas.append(Registro(reversa, nome))
+    reservas.append(Registro(reserva, nome))
     print("\nReserva registrada com sucesso!")
 
 def consulta_aviao(lista_aviao):
     aviao = input("\nInforme o número do avião: ")
 
     if aviao not in lista_aviao:
-        print("\nEste avião não existe!")
+        print("\n===== Este avião não existe! =====")
         return
 
     print(f"\nAvião encontrado: {aviao}")
@@ -105,15 +105,25 @@ while True:
     
     match opcao:
      case 1 :
+        os.system("cls")
         registrar_aviao(lista_aviao)
+
      case 2 : 
+        os.system("cls")
         registrar_qunt(lista_assento)
+
      case 3 :
+        os.system("cls")
         reserva_aviao(lista_aviao)
+
      case 4: 
+        os.system("cls")
         consulta_aviao(lista_aviao)
+
      case 5:
+        os.system("cls")
         consulta_passageiro()
+        
      case 6: 
         print("Saindo do programa...")
         time.sleep(3)
